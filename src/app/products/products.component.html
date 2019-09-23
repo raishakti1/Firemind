@@ -1,0 +1,24 @@
+
+<nav class="shakti">
+  <span>Product Manager</span>
+   <a mat-button  (click)="logout()">
+    <span>logout</span>
+  </a>
+</nav>
+
+
+<div class="products">
+<h2>Products</h2>
+<ul >
+    <li *ngFor="let product of products">
+      <a routerLink="/products/{{product.id}}">
+        <span class="badge">{{product.name|uppercase}}</span> <span class="badge">{{product.price}}</span> 
+      </a>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
+
+
+

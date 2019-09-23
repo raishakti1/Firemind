@@ -1,0 +1,19 @@
+<h2>product details</h2>
+<span>Name</span>
+<br>
+<input type ="text" [(ngModel)]="product.name"/>
+<br>
+<span>price</span>
+<br>
+<input type ="text" [(ngModel)]="product.price"/>
+<br>
+<span>Rating</span>
+<br>
+<select  name="duration" [(ngModel)]="product.rating"> 
+        <option *ngFor="let duration of durations" [value]="duration">{{duration}}</option> 
+</select> 
+<br>
+<br>
+<button (click)="deletedata()">Delete</button>
+<button (click)="cancel()">Cancel</button>
+<button (click)="savedata()">Save</button>

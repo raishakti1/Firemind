@@ -1,0 +1,83 @@
+<mat-card>
+    <mat-card-title>SignUP</mat-card-title>
+<mat-card-content>
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+
+        <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Firstname" formControlName="firstname">
+                  <mat-error *ngIf="(f.firstname.touched && f.firstname.errors?.required)||(check()&&f.firstname.errors?.required)">First name is required</mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Lastname" formControlName="lastname">
+                      <mat-error *ngIf="f.lastname.touched && f.lastname.errors?.required">First name is required</mat-error>
+                    </mat-form-field>
+                  </p>
+  <p>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Username" formControlName="username">
+      <mat-error *ngIf="f.username.touched && f.username.errors?.required">Name is required</mat-error>
+    </mat-form-field>
+  </p>
+  
+
+  <p>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+      <mat-hint  *ngIf="f.password.dirty" >Max 10,Min 6,one special char</mat-hint>
+      <mat-error *ngIf="f.password.touched && f.password.errors?.required">Password is required</mat-error>
+      <mat-error *ngIf="f.password.touched && f.password.errors?.minlength">minimum length is 6</mat-error>
+      <mat-error *ngIf="f.password.touched && f.password.errors?.maxlength">maximum length is 10</mat-error>
+      <mat-error *ngIf="f.password.touched && f.password.errors?.validpassword"> must contain at least special char </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+     <tr>
+        <mat-label>Gender:</mat-label>
+        <mat-radio-group  formControlName="gender">
+          <mat-radio-button  value="male"  > Male </mat-radio-button>
+          <mat-radio-button  value="female"  >Female </mat-radio-button>
+          </mat-radio-group>
+          <mat-error *ngIf="f.gender.touched && f.gender.errors?.required">Gender is required</mat-error>
+        </p>
+
+      <p>
+           <mat-form-field>  
+                    <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of birth">  
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                    <mat-datepicker touchUi="true" #picker></mat-datepicker>  
+                    <mat-error *ngIf="f.DOB.touched && f.DOB.errors?.required">Date is required</mat-error>
+            </mat-form-field>  
+       </p>  
+       
+       <p>
+
+            <mat-form-field>  
+                    <mat-select formControlName="city" placeholder="Select city">  
+                        
+                        <mat-option value="Delhi">Delhi</mat-option>  
+                        <mat-option value="Gurgaon">Gurgaon</mat-option>  
+                        <mat-option value="Noida">Noida</mat-option>  
+                    </mat-select> 
+                    <mat-error *ngIf="f.city.touched && f.city.errors?.required">City is required</mat-error>
+                </mat-form-field>  
+           </p>
+
+           
+           
+            
+           
+
+  
+
+  <div class="button">
+    <button type="submit" mat-raised-button color="primary">Register</button>
+  </div>
+
+</form>
+</mat-card-content>
+</mat-card>

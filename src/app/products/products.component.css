@@ -1,0 +1,33 @@
+.products
+{
+    width: 200px;
+    background-color:whitesmoke;
+    border-style: solid;
+    
+    margin :10px;
+}
+
+nav a
+{
+    float:right;
+    color:white;
+    
+}
+
+nav a:hover{
+    color: blue
+}
+
+nav span
+{
+    color:white; 
+}
+
+.shakti
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:blue;
+}
